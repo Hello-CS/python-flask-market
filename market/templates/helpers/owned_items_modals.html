@@ -1,0 +1,43 @@
+<style>
+    .modal-content {
+        background-color: #212121
+    }
+</style>
+
+<!--SellConfirmation-->
+<div class="modal fade" id="Modal-SellConfirmation-{{ owned_item.id }}"
+    tabindex="mb-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    <!-- -->
+                    {{ owned_item.name }}
+                </h5>
+                <button type="button" class="close"
+                    data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--Here goes the text/paragraph-->
+                <form method="POST">
+                    {{ sell_form.hidden_tag() }}
+                    <h4 class="text-center">Sell your {{ owned_item.name }} for ${{ owned_item.price }}?</h4>
+                    <br>
+                    <h6 class="text-center">By clicking sell, you will confirm your action.</h6>
+                    <br>
+                    <!--We use type=hidden because we don't need this to be presented, we want to do smth with this behind with value-->
+                    <input id="sold_item" name="sold_item" type="hidden" value="{{ owned_item.name }}"> 
+                    {{ sell_form.submit(class="btn btn-outline-danger btn-block") }}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
