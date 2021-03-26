@@ -11,16 +11,16 @@
         <br>
         <form method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }} <!--Generates a random token that protects us from Cross Site Request Forgery-->
-            {{ form.username.label() }}
+            
             {{ form.username(class="form-control", placeholder="Username") }} <!--Flask forms can accept attr like real HTML-->
 
-            {{ form.email_address.label() }}
+            
             {{ form.email_address(class="form-control", placeholder="Email Address") }}
 
-            {{ form.password1.label() }}
+            
             {{ form.password1(class="form-control", placeholder="Password") }}
 
-            {{ form.password2.label() }}
+            
             {{ form.password2(class="form-control", placeholder="Please confirm password") }}
             
             <br>
